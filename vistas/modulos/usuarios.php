@@ -229,6 +229,8 @@ MODAL AGREGAR USUARIO
 
                   <option value="Vendedor">Vendedor</option>
 
+                  <option value="Invitado">Invitado</option>
+
                 </select>
 
               </div>

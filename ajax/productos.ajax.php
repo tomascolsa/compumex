@@ -98,7 +98,7 @@ GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
 if(isset($_POST["idAlmacen"])){
 
 	$codigoProducto = new AjaxProductos();
-	$codigoProducto -> idCategoria = $_POST["idAlmacen"];
+	$codigoProducto -> idAlmacen = $_POST["idAlmacen"];
 	$codigoProducto -> ajaxCrearCodigoProducto();
 
 }

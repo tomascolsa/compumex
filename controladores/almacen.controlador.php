@@ -154,7 +154,7 @@ class ControladorAlmacen{
 			$tabla ="Almacen";
 			$datos = $_GET["idAlmacen"];
 
-			$respuesta = ModeloCategorias::mdlBorrarAlmacen($tabla, $datos);
+			$respuesta = ModeloAlmacen::mdlBorrarAlmacen($tabla, $datos);
 
 			if($respuesta == "ok"){
 
@@ -168,7 +168,7 @@ class ControladorAlmacen{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "Almacen";
+									window.location = "almacen";
 
 									}
 								})

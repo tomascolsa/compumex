@@ -56,18 +56,18 @@ if($_SESSION["perfil"] == "Vendedor"){
          <tr>
            
            <th style="width:10px">#</th>
-           <th>Imagen</th>
-           <th>Código</th>
            <th>Descripción</th>
+           <th>Código</th>
+           <th>Almacen</th>
            <th>Categoría</th>
            <th>Stock</th>
-           <th>Almacen</th>
            <th>Estetica de Producto</th>
            <th>Procesador</th>
            <th>Precio Remate</th>
            <th>Precio Mayoreo</th>
            <th>Precio de venta</th>
-           <th>Agregado</th>
+           <th>Producto Agregado</th>
+           <th>Imagen</th>
            <th>Acciones</th>
            
          </tr> 
@@ -151,7 +151,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+            <!-- ENTRADA PARA SELECCIONAR ALMACEN -->
 
             <div class="form-group">
               

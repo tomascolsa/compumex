@@ -38,7 +38,7 @@
 
 					<a href="almacen">
 
-						<i class="fa-home"></i>
+						<i class="fa fa-home"></i>
 						<span>Almacenes</span>
 
 					</a>
