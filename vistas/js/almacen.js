@@ -48,7 +48,7 @@ $(".tablas").on("click", ".btnEliminarAlmacen", function(){
 
 	 	if(result.value){
 
-	 		window.location = "index.php?ruta=almacens&idAlmacen="+idAlmacen;
+	 		window.location = "index.php?ruta=almacen&idAlmacen="+idAlmacen;
 
 	 	}
 

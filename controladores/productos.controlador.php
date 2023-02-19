@@ -98,9 +98,14 @@ class ControladorProductos{
 				$tabla = "productos";
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
+							   "id_almacen" => $_POST["nuevaalmacen"],				
 							   "codigo" => $_POST["nuevoCodigo"],
 							   "descripcion" => $_POST["nuevaDescripcion"],
+							   "estetica" => $_POST["nuevaestetica"],
+							   "cpug" => $_POST["nuevacpug"],
 							   "stock" => $_POST["nuevoStock"],
+							   "precio_remate" => $_POST["nuevoPrecioRemate"],
+							   "precio_mayoreo" => $_POST["nuevoPrecioMayoreo"],
 							   "precio_venta" => $_POST["nuevoPrecioVenta"],
 							   "imagen" => $ruta);
 
@@ -245,9 +250,14 @@ class ControladorProductos{
 				$tabla = "productos";
 
 				$datos = array("id_categoria" => $_POST["editarCategoria"],
+							   "id_almacen" => $_POST["editarAlmacen"],
 							   "codigo" => $_POST["editarCodigo"],
 							   "descripcion" => $_POST["editarDescripcion"],
+							   "estetica" => $_POST["editarEstetica"],
+							   "cpug" => $_POST["editarCpug"],
 							   "stock" => $_POST["editarStock"],
+							   "precio_remate" => $_POST["editarPrecioRemate"],
+							   "precio_mayoreo" => $_POST["editarPrecioMayoreo"],
 							   "precio_venta" => $_POST["editarPrecioVenta"],
 							   "imagen" => $ruta);
 

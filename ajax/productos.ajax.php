@@ -92,7 +92,7 @@ if(isset($_POST["idCategoria"])){
 
 }
 /*=============================================
-GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
+GENERAR CÓDIGO A PARTIR DE ID ALMACEN
 =============================================*/	
 
 if(isset($_POST["idAlmacen"])){
