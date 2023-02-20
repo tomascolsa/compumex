@@ -197,6 +197,20 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
+            <!-- ENTRADA PARA LA DESCRIPCIÓN -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL ESTETICA -->
             
             <div class="form-group">
@@ -225,19 +239,6 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA LA DESCRIPCIÓN -->
-
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
-
-              </div>
-
-            </div>
 
              <!-- ENTRADA PARA STOCK -->
 
@@ -253,30 +254,15 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
+            <!-- ENTRADA PARA PRECIO REMATE -->
 
-                <!-- ENTRADA PARA PRECIO VENTA -->
-
-                <div class="col-xs-6">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
-
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Precio de Venta" required>
-
-                  </div>
-                
-                  <br>
-
-                  <!-- ENTRADA PARA PRECIO REMATE -->
-
-                <div class="form-group">
+            <div class="form-group">
                 
                 <div class="input-group">
                 
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-                  <input type="number" class="form-control input-lg" id="nuevoPrecioRemate" name="nuevoPrecioRemate" step="any" min="0" placeholder="Precio de Remate" required>
+                  <input type="number" class="form-control input-lg" id="nuevoPrecioRemate" name="nuevoPrecioRemate" step="any" min="0" required>
 
                 </div>
               
@@ -290,12 +276,26 @@ MODAL AGREGAR PRODUCTO
                   
                     <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioMayoreo" name="nuevoPrecioMayoreo" step="any" min="0" placeholder="Precio de Mayoreo" required>
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioMayoreo" name="nuevoPrecioMayoreo" step="any" min="0" required>
 
                   </div>
                 
                   <br>
 
+
+                <!-- ENTRADA PARA PRECIO VENTA -->
+
+                <div class="col-xs-6">
+                
+                  <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" required>
+
+                  </div>
+                
+                  <br>
 
             <!-- ENTRADA PARA SUBIR FOTO -->
 
@@ -393,6 +393,24 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
+              <!-- ENTRADA PARA SELECCIONAR ALMACEN -->
+
+              <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg"  name="editarAlmacen" readonly required>
+                  
+                  <option id="editarAlmacen"></option>
+
+                </select>
+
+              </div>
+
+            </div>    
+
             <!-- ENTRADA PARA EL CÓDIGO -->
             
             <div class="form-group">
@@ -421,6 +439,36 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
+             <!-- ENTRADA PARA LA ESTETICA -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="editarEstetica" name="editarEstetica" required>
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA PARA LA CPUG -->
+
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="editarCpug" name="editarCpug" required>
+
+              </div>
+
+            </div>
+
+             
+
              <!-- ENTRADA PARA STOCK -->
 
              <div class="form-group">
@@ -434,6 +482,34 @@ MODAL EDITAR PRODUCTO
               </div>
 
             </div>
+
+            <!-- ENTRADA PARA PRECIO REMATE -->
+
+            <div class="col-xs-6">
+                
+                <div class="input-group">
+                
+                  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+
+                  <input type="number" class="form-control input-lg" id="editarPrecioRemate" name="editarPrecioRemate" step="any" min="0" readonly required>
+
+                </div>
+              
+                <br>
+
+                <!-- ENTRADA PARA PRECIO MAYOREO -->
+
+                <div class="col-xs-6">
+                
+                  <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+
+                    <input type="number" class="form-control input-lg" id="editarPrecioMayoreo" name="editarPrecioMayoreo" step="any" min="0" readonly required>
+
+                  </div>
+                
+                  <br>
 
                 <!-- ENTRADA PARA PRECIO VENTA -->
 

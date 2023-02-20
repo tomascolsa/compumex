@@ -75,7 +75,7 @@ class ModeloProductos{
 	=============================================*/
 	static public function mdlEditarProducto($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_categoria = :id_categoria, id-almacen = :id_almacen, descripcion = :descripcion, estetica = :estetica, cpug = :cpug, imagen = :imagen, stock = :stock, precio_remate = :precio_remate, precio_mayoreo = precioo_mayoreo, precio_venta = :precio_venta WHERE codigo = :codigo");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_categoria = :id_categoria, id_almacen = :id_almacen, descripcion = :descripcion, estetica = :estetica, cpug = :cpug, imagen = :imagen, stock = :stock, precio_remate = :precio_remate, precio_mayoreo = :precio_mayoreo, precio_venta = :precio_venta");
 
 		$stmt->bindParam(":id_categoria", $datos["id_categoria"], PDO::PARAM_INT);
 		$stmt->bindParam(":id_almacen", $datos["id_almacen"], PDO::PARAM_INT);

@@ -90,10 +90,6 @@ CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
 
 
 
-
-
-
-
 /*=============================================
 SUBIENDO LA FOTO DEL PRODUCTO
 =============================================*/

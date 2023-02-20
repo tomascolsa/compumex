@@ -19,20 +19,19 @@ class ControladorProductos{
 	/*=============================================
 	CREAR PRODUCTO 
 	=============================================*/
-
 	static public function ctrCrearProducto(){
 
 		if(isset($_POST["nuevaDescripcion"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaDescripcion"]) &&
-			   preg_match('/^[0-9]+$/', $_POST["nuevoStock"]) &&	
+			   preg_match('/^[0-9]+$/', $_POST["nuevoStock"]) &&
 			   preg_match('/^[0-9.]+$/', $_POST["nuevoPrecioVenta"])){
 
 		   		/*=============================================
 				VALIDAR IMAGEN
 				=============================================*/
 
-			   	$ruta = "vistas/img/productos/default/anonymous.png";
+			   	$ruta = "vistas/img/product/default/anonymous.png";
 
 			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
@@ -45,7 +44,7 @@ class ControladorProductos{
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-					$directorio = "vistas/img/productos/".$_POST["nuevoCodigo"];
+					$directorio = "vistas/img/product/".$_POST["nuevoCodigo"];
 
 					mkdir($directorio, 0755);
 
@@ -61,7 +60,7 @@ class ControladorProductos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
+						$ruta = "vistas/img/product/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
 
 						$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);						
 
@@ -81,7 +80,7 @@ class ControladorProductos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
+						$ruta = "vistas/img/product/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
 
 						$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);						
 
@@ -98,11 +97,11 @@ class ControladorProductos{
 				$tabla = "productos";
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
-							   "id_almacen" => $_POST["nuevaalmacen"],				
+							   "id_almacen" => $_POST["nuevaAlmacen"],
 							   "codigo" => $_POST["nuevoCodigo"],
 							   "descripcion" => $_POST["nuevaDescripcion"],
-							   "estetica" => $_POST["nuevaestetica"],
-							   "cpug" => $_POST["nuevacpug"],
+							   "estetica" => $_POST["nuevoEstetica"],
+							   "cpug" => $_POST["nuevoCpug"],
 							   "stock" => $_POST["nuevoStock"],
 							   "precio_remate" => $_POST["nuevoPrecioRemate"],
 							   "precio_mayoreo" => $_POST["nuevoPrecioMayoreo"],
@@ -165,9 +164,8 @@ class ControladorProductos{
 		if(isset($_POST["editarDescripcion"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"]) &&
-			   preg_match('/^[0-9]+$/', $_POST["editarStock"]) &&	
-			   preg_match('/^[0-9.]+$/', $_POST["editarPrecioVenta"])){
-
+			preg_match('/^[0-9]+$/', $_POST["editarStock"]) &&	
+			preg_match('/^[0-9.]+$/', $_POST["editarPrecioVenta"])){
 		   		/*=============================================
 				VALIDAR IMAGEN
 				=============================================*/
@@ -185,13 +183,13 @@ class ControladorProductos{
 					CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 					=============================================*/
 
-					$directorio = "vistas/img/productos/".$_POST["editarCodigo"];
+					$directorio = "vistas/img/product/".$_POST["editarCodigo"];
 
 					/*=============================================
 					PRIMERO PREGUNTAMOS SI EXISTE OTRA IMAGEN EN LA BD
 					=============================================*/
 
-					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/productos/default/anonymous.png"){
+					if(!empty($_POST["imagenActual"]) && $_POST["imagenActual"] != "vistas/img/product/default/anonymous.png"){
 
 						unlink($_POST["imagenActual"]);
 
@@ -213,7 +211,7 @@ class ControladorProductos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["editarCodigo"]."/".$aleatorio.".jpg";
+						$ruta = "vistas/img/product/".$_POST["editarCodigo"]."/".$aleatorio.".jpg";
 
 						$origen = imagecreatefromjpeg($_FILES["editarImagen"]["tmp_name"]);						
 
@@ -233,7 +231,7 @@ class ControladorProductos{
 
 						$aleatorio = mt_rand(100,999);
 
-						$ruta = "vistas/img/productos/".$_POST["editarCodigo"]."/".$aleatorio.".png";
+						$ruta = "vistas/img/product/".$_POST["editarCodigo"]."/".$aleatorio.".png";
 
 						$origen = imagecreatefrompng($_FILES["editarImagen"]["tmp_name"]);						
 
@@ -318,10 +316,10 @@ class ControladorProductos{
 			$tabla ="productos";
 			$datos = $_GET["idProducto"];
 
-			if($_GET["imagen"] != "" && $_GET["imagen"] != "vistas/img/productos/default/anonymous.png"){
+			if($_GET["imagen"] != "" && $_GET["imagen"] != "vistas/img/product/default/anonymous.png"){
 
 				unlink($_GET["imagen"]);
-				rmdir('vistas/img/productos/'.$_GET["codigo"]);
+				rmdir('vistas/img/product/'.$_GET["codigo"]);
 
 			}
 
