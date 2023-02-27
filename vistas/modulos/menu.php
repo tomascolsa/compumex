@@ -1,6 +1,6 @@
 <aside class="main-sidebar">
 
-	 <section class="sidebar">
+	<section class="sidebar">
 
 		<ul class="sidebar-menu">
 
@@ -71,13 +71,13 @@
 
 			</li>
 
-			<li>
 
 
 
 			</li>';
 
 		}
+
 
 		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
 
@@ -159,10 +159,30 @@
 
 		}
 
+		if($_SESSION["perfil"] == "Invitado" || $_SESSION["perfil"] == "Administrador"){
+
+			echo '<li>
+
+					<a href="iproductos">
+
+						<i class="fa fa-product-hunt"></i>
+						<span>Invitado Productos</span>
+
+					</a>
+
+			</li>
+
+
+
+
+			</li>';
+
+		}
+
 		?>
 
 		</ul>
 
-	 </section>
+	</section>
 
 </aside>

@@ -33,7 +33,7 @@ class AjaxProductos{
   EDITAR PRODUCTO
   =============================================*/ 
 
-  public $idProducto;
+  public $idPoducto;
   public $traerProductos;
   public $nombreProducto;
 

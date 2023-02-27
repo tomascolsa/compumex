@@ -84,7 +84,7 @@
            
           <?php
 
-          if($_SESSION["perfil"] =="Especial" || $_SESSION["perfil"] =="Vendedor"){
+          if($_SESSION["perfil"] =="Especial" || $_SESSION["perfil"] =="Vendedor" || $_SESSION["perfil"] =="Invitado"){
 
              echo '<div class="box box-success">
 

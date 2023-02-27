@@ -63,12 +63,12 @@ class TablaProductos{
 		  	/*=============================================
  	 		STOCK
   			=============================================*/ 
-
-  			if($productos[$i]["stock"] <= 10){
+			
+  			if($productos[$i]["stock"] <= 3){
 
   				$stock = "<button class='btn btn-danger'>".$productos[$i]["stock"]."</button>";
 
-  			}else if($productos[$i]["stock"] > 11 && $productos[$i]["stock"] <= 15){
+  			}else if($productos[$i]["stock"] > 3 && $productos[$i]["stock"] <= 16){
 
   				$stock = "<button class='btn btn-warning'>".$productos[$i]["stock"]."</button>";
 
@@ -76,7 +76,10 @@ class TablaProductos{
 
   				$stock = "<button class='btn btn-success'>".$productos[$i]["stock"]."</button>";
 
-  			}
+  			}if($productos[$i]["stock"] == 0){
+
+				$stock = "<button class='btn btn-secondary'>".$productos[$i]["stock"]."</button>";
+			}
 
 		  	/*=============================================
  	 		TRAEMOS LAS ACCIONES
@@ -88,7 +91,7 @@ class TablaProductos{
 
   			}else{
 
-  				 $botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["codigo"]."' imagen='".$productos[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"; 
+  				 $botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["codigo"]."' imagen='".$productos[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>";  
 
   			}
 

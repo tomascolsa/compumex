@@ -11,7 +11,7 @@ session_start();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>CompuMex</title>
+  <title>Pruebas</title>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -141,6 +141,7 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "almacen" ||
          $_GET["ruta"] == "categorias" ||
          $_GET["ruta"] == "productos" ||
+         $_GET["ruta"] == "iproductos" ||
          $_GET["ruta"] == "clientes" ||
          $_GET["ruta"] == "ventas" ||
          $_GET["ruta"] == "crear-venta" ||
@@ -184,6 +185,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/almacen.js"></script>
 <script src="vistas/js/categorias.js"></script>
 <script src="vistas/js/productos.js"></script>
+<script src="vistas/js/iproductos.js"></script>
 <script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/ventas.js"></script>
 <script src="vistas/js/reportes.js"></script>

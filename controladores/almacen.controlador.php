@@ -151,7 +151,7 @@ class ControladorAlmacen{
 
 		if(isset($_GET["idAlmacen"])){
 
-			$tabla ="Almacen";
+			$tabla ="almacen";
 			$datos = $_GET["idAlmacen"];
 
 			$respuesta = ModeloAlmacen::mdlBorrarAlmacen($tabla, $datos);

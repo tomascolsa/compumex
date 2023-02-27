@@ -75,7 +75,7 @@ class ModeloProductos{
 	=============================================*/
 	static public function mdlEditarProducto($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_categoria = :id_categoria, id_almacen = :id_almacen, codigo = :codigo, descripcion = :descripcion, estetica = :estetica, cpug = :cpug, imagen = :imagen, stock = :stock, precio_remate = :precio_remate, precio_mayoreo = :precio_mayoreo, precio_venta = :precio_venta");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET id_categoria = :id_categoria, id_almacen = :id_almacen, codigo = :codigo, descripcion = :descripcion, estetica = :estetica, cpug = :cpug, imagen = :imagen, stock = :stock, precio_remate = :precio_remate, precio_mayoreo = :precio_mayoreo, precio_venta = :precio_venta WHERE codigo = :codigo");
 
 		$stmt->bindParam(":id_categoria", $datos["id_categoria"], PDO::PARAM_INT);
 		$stmt->bindParam(":id_almacen", $datos["id_almacen"], PDO::PARAM_INT);
@@ -108,7 +108,7 @@ class ModeloProductos{
 	BORRAR PRODUCTO
 	=============================================*/
 
-	static public function mdlEliminarProducto($tabla, $datos){
+    static public function mdlEliminarProducto($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 

@@ -1,6 +1,6 @@
 <?php
 
-if($_SESSION["perfil"] == "Vendedor"){
+if ($_SESSION["perfil"] == "Vendedor") {
 
   echo '<script>
 
@@ -9,26 +9,27 @@ if($_SESSION["perfil"] == "Vendedor"){
   </script>';
 
   return;
-
 }
 
 ?>
+
+
 <div class="content-wrapper">
 
   <section class="content-header">
-    
+
     <h1>
-      
+
       Administrar productos
-    
+
     </h1>
 
     <ol class="breadcrumb">
-      
+
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      
+
       <li class="active">Administrar productos</li>
-    
+
     </ol>
 
   </section>
@@ -38,9 +39,9 @@ if($_SESSION["perfil"] == "Vendedor"){
     <div class="box">
 
       <div class="box-header with-border">
-  
+
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
-          
+
           Agregar producto
 
         </button>
@@ -48,35 +49,35 @@ if($_SESSION["perfil"] == "Vendedor"){
       </div>
 
       <div class="box-body">
-        
-       <table class="table table-bordered table-striped dt-responsive tablaProductos" width="100%">
-         
-        <thead>
-         
-         <tr>
-           
-           <th style="width:10px">#</th>
-           <th>Descripción</th>
-           <th>Código</th>
-           <th>Almacen</th>
-           <th>Categoría</th>
-           <th>Stock</th>
-           <th>Estetica de Producto</th>
-           <th>Procesador</th>
-           <th>Precio Remate</th>
-           <th>Precio Mayoreo</th>
-           <th>Precio de venta</th>
-           <th>Producto Agregado</th>
-           <th>Imagen</th>
-           <th>Acciones</th>
-           
-         </tr> 
 
-        </thead>      
+        <table class="table table-bordered table-striped dt-responsive tablaProductos" width="100%">
 
-       </table>
+          <thead>
 
-       <input type="hidden" value="<?php echo $_SESSION['perfil']; ?>" id="perfilOculto">
+            <tr>
+
+              <th style="width:10px">#</th>
+              <th>Descripción</th>
+              <th>Código</th>
+              <th>Almacen</th>
+              <th>Categoría</th>
+              <th>Stock</th>
+              <th>Estetica de Producto</th>
+              <th>Procesador</th>
+              <th>Precio Remate</th>
+              <th>Precio Mayoreo</th>
+              <th>Precio de venta</th>
+              <th>Producto Agregado</th>
+              <th>Imagen</th>
+              <th>Acciones</th>
+
+            </tr>
+
+          </thead>
+
+        </table>
+
+        <input type="hidden" value="<?php echo $_SESSION['perfil']; ?>" id="perfilOculto">
 
       </div>
 
@@ -91,7 +92,7 @@ MODAL AGREGAR PRODUCTO
 ======================================-->
 
 <div id="modalAgregarProducto" class="modal fade" role="dialog">
-  
+
   <div class="modal-dialog">
 
     <div class="modal-content">
@@ -122,13 +123,13 @@ MODAL AGREGAR PRODUCTO
             <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
 
             <div class="form-group">
-              
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
 
                 <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
-                  
+
                   <option value="">Selecionar categoría</option>
 
                   <?php
@@ -139,12 +140,12 @@ MODAL AGREGAR PRODUCTO
                   $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
                   foreach ($categorias as $key => $value) {
-                    
-                    echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
+
+                    echo '<option value="' . $value["id"] . '">' . $value["categoria"] . '</option>';
                   }
 
                   ?>
-  
+
                 </select>
 
               </div>
@@ -154,13 +155,13 @@ MODAL AGREGAR PRODUCTO
             <!-- ENTRADA PARA SELECCIONAR ALMACEN -->
 
             <div class="form-group">
-              
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-home"></i></span>
 
                 <select class="form-control input-lg" id="nuevaAlmacen" name="nuevaAlmacen" required>
-                  
+
                   <option value="">Selecionar Almacen</option>
 
                   <?php
@@ -171,12 +172,12 @@ MODAL AGREGAR PRODUCTO
                   $almacen = ControladorAlmacen::ctrMostrarAlmacen($item, $valor);
 
                   foreach ($almacen as $key => $value) {
-                    
-                    echo '<option value="'.$value["id"].'">'.$value["almacen"].'</option>';
+
+                    echo '<option value="' . $value["id"] . '">' . $value["almacen"] . '</option>';
                   }
 
                   ?>
-  
+
                 </select>
 
               </div>
@@ -184,12 +185,12 @@ MODAL AGREGAR PRODUCTO
             </div>
 
             <!-- ENTRADA PARA EL CÓDIGO -->
-            
+
             <div class="form-group">
-              
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-code"></i></span>
 
                 <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código" required>
 
@@ -200,10 +201,10 @@ MODAL AGREGAR PRODUCTO
             <!-- ENTRADA PARA LA DESCRIPCIÓN -->
 
             <div class="form-group">
-              
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
 
                 <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
 
@@ -212,12 +213,12 @@ MODAL AGREGAR PRODUCTO
             </div>
 
             <!-- ENTRADA PARA EL ESTETICA -->
-            
+
             <div class="form-group">
-              
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-eye"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-eye"></i></span>
 
                 <input type="text" class="form-control input-lg" id="nuevoEstetica" name="nuevoEstetica" placeholder="Ingresar Estética" required>
 
@@ -225,13 +226,13 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA EL Procesador -->
-            
-             <div class="form-group">
-              
+            <!-- ENTRADA PARA EL Procesador -->
+
+            <div class="form-group">
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-microchip"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-microchip"></i></span>
 
                 <input type="text" class="form-control input-lg" id="nuevoCpug" name="nuevoCpug" placeholder="Ingresar Datos de Procesador" required>
 
@@ -240,13 +241,13 @@ MODAL AGREGAR PRODUCTO
             </div>
 
 
-             <!-- ENTRADA PARA STOCK -->
+            <!-- ENTRADA PARA STOCK -->
 
-             <div class="form-group">
-              
+            <div class="form-group">
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-tasks"></i></span>
 
                 <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Stock" required>
 
@@ -257,62 +258,65 @@ MODAL AGREGAR PRODUCTO
             <!-- ENTRADA PARA PRECIO REMATE -->
 
             <div class="form-group">
-                
-                <div class="input-group">
-                
-                  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
-                  <input type="number" class="form-control input-lg" id="nuevoPrecioRemate" name="nuevoPrecioRemate" step="any" min="0" required>
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-money"></i></span>
+
+                <input type="number" class="form-control input-lg" id="nuevoPrecioRemate" name="nuevoPrecioRemate" step="any" min="0" required placeholder="Precio Remate">
+
+              </div>
+
+              <br>
+
+              <!-- ENTRADA PARA PRECIO MAYOREO-->
+
+              <div class="form-group">
+
+                <div class="input-group">
+
+                  <span class="input-group-addon"><i class="fa fa-gg-circle"></i></span>
+
+                  <input type="number" class="form-control input-lg" id="nuevoPrecioMayoreo" name="nuevoPrecioMayoreo" step="any" min="0" required placeholder="Precio Mayoreo">
 
                 </div>
-              
+
                 <br>
 
-                <!-- ENTRADA PARA PRECIO MAYOREO-->
 
-                <div class="form-group">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+              <!-- ENTRADA PARA PRECIO VENTA -->
 
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioMayoreo" name="nuevoPrecioMayoreo" step="any" min="0" required>
+              <div class="form-group">
+
+                <div class="input-group">
+
+                  <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+
+                  <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" required placeholder="Precio Venta">
+
+                </div>
+
+                <br>
+
+                  <!-- ENTRADA PARA SUBIR FOTO -->
+
+                  <div class="form-group">
+
+                    <div class="panel">SUBIR IMAGEN</div>
+
+                    <input type="file" class="nuevaImagen" name="nuevaImagen">
+
+                    <p class="help-block">Peso máximo de la imagen 2MB</p>
+
+                    <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
                   </div>
-                
-                  <br>
 
+                </div>
 
-                <!-- ENTRADA PARA PRECIO VENTA -->
-
-                <div class="col-xs-6">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
-
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" required>
-
-                  </div>
-                
-                  <br>
-
-            <!-- ENTRADA PARA SUBIR FOTO -->
-
-             <div class="form-group">
-              
-              <div class="panel">SUBIR IMAGEN</div>
-
-              <input type="file" class="nuevaImagen" name="nuevaImagen">
-
-              <p class="help-block">Peso máximo de la imagen 2MB</p>
-
-              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
-
+              </div>
             </div>
-
           </div>
-
         </div>
 
         <!--=====================================
@@ -329,12 +333,8 @@ MODAL AGREGAR PRODUCTO
 
       </form>
 
-        <?php
-
-          $crearProducto = new ControladorProductos();
-          $crearProducto -> ctrCrearProducto();
-
-        ?>  
+      <?php $crearProducto = new ControladorProductos();
+      $crearProducto->ctrCrearProducto(); ?>
 
     </div>
 
@@ -342,12 +342,13 @@ MODAL AGREGAR PRODUCTO
 
 </div>
 
+
 <!--=====================================
 MODAL EDITAR PRODUCTO
 ======================================-->
 
 <div id="modalEditarProducto" class="modal fade" role="dialog">
-  
+
   <div class="modal-dialog">
 
     <div class="modal-content">
@@ -378,13 +379,16 @@ MODAL EDITAR PRODUCTO
             <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
 
             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg"  name="editarCategoria" readonly required>
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-th"></i></span>
+
+                <p>Categoria</p>
+
+                <select class="form-control input-lg" name="editarCategoria">
                   
+
                   <option id="editarCategoria"></option>
 
                 </select>
@@ -393,33 +397,37 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-              <!-- ENTRADA PARA SELECCIONAR ALMACEN -->
+            <!-- ENTRADA PARA SELECCIONAR ALMACEN -->
 
-              <div class="form-group">
-              
+            <div class="form-group">
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg"  name="editarAlmacen" readonly required>
-                  
+                <span class="input-group-addon"><i class="fa fa-home"></i></span>
+
+                <p>Almacen</p>
+
+                <select class="form-control input-lg" name="editarAlmacen">
+
                   <option id="editarAlmacen"></option>
 
                 </select>
 
               </div>
 
-            </div>    
+            </div>
 
             <!-- ENTRADA PARA EL CÓDIGO -->
-            
-            <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" readonly required>
+            <div class="form-group">
+
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-code"></i></span>
+
+                <p>Código de Producto</p>
+
+                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo">
 
               </div>
 
@@ -427,11 +435,13 @@ MODAL EDITAR PRODUCTO
 
             <!-- ENTRADA PARA LA DESCRIPCIÓN -->
 
-             <div class="form-group">
-              
+            <div class="form-group">
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+
+                <p>Descripción</p>
 
                 <input type="text" class="form-control input-lg" id="editarDescripcion" name="editarDescripcion" required>
 
@@ -439,13 +449,15 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA LA ESTETICA -->
+            <!-- ENTRADA PARA LA ESTETICA -->
 
-             <div class="form-group">
-              
+            <div class="form-group">
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-eye"></i></span>
+
+                <p>Estética</p>
 
                 <input type="text" class="form-control input-lg" id="editarEstetica" name="editarEstetica" required>
 
@@ -453,13 +465,15 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA LA CPUG -->
+            <!-- ENTRADA PARA LA CPUG -->
 
-             <div class="form-group">
-              
+            <div class="form-group">
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-microchip"></i></span>
+
+                <p>Procesador</p>
 
                 <input type="text" class="form-control input-lg" id="editarCpug" name="editarCpug" required>
 
@@ -467,15 +481,16 @@ MODAL EDITAR PRODUCTO
 
             </div>
 
-             
 
-             <!-- ENTRADA PARA STOCK -->
+            <!-- ENTRADA PARA STOCK -->
 
-             <div class="form-group">
-              
+            <div class="form-group">
+
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
+
+                <span class="input-group-addon"><i class="fa fa-tasks"></i></span>
+
+                <p>Stock</p>
 
                 <input type="number" class="form-control input-lg" id="editarStock" name="editarStock" min="0" required>
 
@@ -485,88 +500,94 @@ MODAL EDITAR PRODUCTO
 
             <!-- ENTRADA PARA PRECIO REMATE -->
 
-            <div class="col-xs-6">
-                
-                <div class="input-group">
-                
-                  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+            <div class="form-group">
 
-                  <input type="number" class="form-control input-lg" id="editarPrecioRemate" name="editarPrecioRemate" step="any" min="0" readonly required>
+              <div class="input-group">
+
+                <span class="input-group-addon"><i class="fa fa-money"></i></span>
+
+                <p>Precio Remate</p>
+
+                <input type="number" class="form-control input-lg" id="editarPrecioRemate" name="editarPrecioRemate" step="any" min="0">
+
+              </div>
+
+              <br>
+
+              <!-- ENTRADA PARA PRECIO MAYOREO -->
+
+              <div>
+
+                <div class="input-group">
+
+                  <span class="input-group-addon"><i class="fa fa-gg-circle"></i></span>
+
+                  <p>Precio Mayoreo</p>
+
+                  <input type="number" class="form-control input-lg" id="editarPrecioMayoreo" name="editarPrecioMayoreo" step="any" min="0">
 
                 </div>
-              
                 <br>
 
-                <!-- ENTRADA PARA PRECIO MAYOREO -->
-
-                <div class="col-xs-6">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
-
-                    <input type="number" class="form-control input-lg" id="editarPrecioMayoreo" name="editarPrecioMayoreo" step="any" min="0" readonly required>
-
-                  </div>
-                
-                  <br>
 
                 <!-- ENTRADA PARA PRECIO VENTA -->
 
-                <div class="col-xs-6">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+                <div>
 
-                    <input type="number" class="form-control input-lg" id="editarPrecioVenta" name="editarPrecioVenta" step="any" min="0" readonly required>
+                  <div class="input-group">
+
+                    <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+
+                    <p>Precio Venta</p>
+
+                    <input type="number" class="form-control input-lg" id="editarPrecioVenta" name="editarPrecioVenta" step="any" min="0">
 
                   </div>
-                
+
                   <br>
 
-              
 
-            <!-- ENTRADA PARA SUBIR FOTO -->
 
-             <div class="form-group">
-              
-              <div class="panel">SUBIR IMAGEN</div>
+                  <!-- ENTRADA PARA SUBIR FOTO -->
 
-              <input type="file" class="nuevaImagen" name="editarImagen">
+                  <div class="form-group">
 
-              <p class="help-block">Peso máximo de la imagen 2MB</p>
+                    <div class="panel">SUBIR IMAGEN</div>
 
-              <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+                    <input type="file" class="nuevaImagen" name="editarImagen">
 
-              <input type="hidden" name="imagenActual" id="imagenActual">
+                    <p class="help-block">Peso máximo de la imagen 2MB</p>
 
-            </div>
+                    <img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
-          </div>
+                    <input type="hidden" name="imagenActual" id="imagenActual">
 
-        </div>
+                  </div>
 
-        <!--=====================================
+                </div>
+
+              </div>
+
+              <!--=====================================
         PIE DEL MODAL
         ======================================-->
 
-        <div class="modal-footer">
+              <div class="modal-footer">
 
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
 
-        </div>
+              </div>
 
       </form>
 
-        <?php
+      <?php
 
-          $editarProducto = new ControladorProductos();
-          $editarProducto -> ctrEditarProducto();
+      $editarProducto = new ControladorProductos();
+      $editarProducto->ctrEditarProducto();
 
-        ?>      
+      ?>
 
     </div>
 
@@ -574,12 +595,12 @@ MODAL EDITAR PRODUCTO
 
 </div>
 
+
+
+
 <?php
 
-  $eliminarProducto = new ControladorProductos();
-  $eliminarProducto -> ctrEliminarProducto();
+$eliminarProducto = new ControladorProductos();
+$eliminarProducto->ctrEliminarProducto();
 
-?>      
-
-
-
+?>

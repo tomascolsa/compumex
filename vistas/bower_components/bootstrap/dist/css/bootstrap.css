@@ -1630,9 +1630,7 @@ pre code {
 .col-xs-10 {
   width: 83.33333333%;
 }
-.col-xs-9 {
-  width: 75%;
-}
+
 .col-xs-8 {
   width: 66.66666667%;
 }
@@ -3346,6 +3344,21 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #d9534f;
   border-color: #d43f3a;
 }
+.btn-secondary {
+  background-color: #f8f3f2;
+  border-color: #070707;
+}
+.btn-secondary:focus,
+.btn-secondary.focus {
+  color: #fff;
+  background-color: #f8f3f2;
+  border-color: #070707;
+}
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #f8f3f2;
+  border-color: #070707;
+}
 .btn-danger:focus,
 .btn-danger.focus {
   color: #fff;
@@ -3364,6 +3377,13 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #c9302c;
   border-color: #ac2925;
 }
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
+  color: #fff;
+  background-color: #f8f3f2;
+  border-color: #070707;
+}
 .btn-danger:active:hover,
 .btn-danger.active:hover,
 .open > .dropdown-toggle.btn-danger:hover,
@@ -3377,9 +3397,27 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #ac2925;
   border-color: #761c19;
 }
+.btn-secondary:active:hover,
+.btn-secondary.active:hover,
+.open > .dropdown-toggle.btn-secondary:hover,
+.btn-secondary:active:focus,
+.btn-secondary.active:focus,
+.open > .dropdown-toggle.btn-secondary:focus,
+.btn-secondary:active.focus,
+.btn-secondary.active.focus,
+.open > .dropdown-toggle.btn-secondary.focus {
+  color: #fff;
+  background-color: #f8f3f2;
+  border-color: #070707;
+}
 .btn-danger:active,
 .btn-danger.active,
 .open > .dropdown-toggle.btn-danger {
+  background-image: none;
+}
+.btn-secondary:active,
+.btn-secondary.active,
+.open > .dropdown-toggle.btn-secondary {
   background-image: none;
 }
 .btn-danger.disabled:hover,
@@ -3393,6 +3431,22 @@ fieldset[disabled] .btn-danger:focus,
 fieldset[disabled] .btn-danger.focus {
   background-color: #d9534f;
   border-color: #d43f3a;
+}
+.btn-secondary.disabled:hover,
+.btn-secondary[disabled]:hover,
+fieldset[disabled] .btn-secondary:hover,
+.btn-secondary.disabled:focus,
+.btn-secondary[disabled]:focus,
+fieldset[disabled] .btn-secondary:focus,
+.btn-secondary.disabled.focus,
+.btn-secondary[disabled].focus,
+fieldset[disabled] .btn-secondary.focus {
+  background-color: #f8f3f2;
+  border-color: #070707;
+}
+.btn-secondary .badge {
+  color: #f8f3f2;
+  background-color: #070707;
 }
 .btn-danger .badge {
   color: #d9534f;
