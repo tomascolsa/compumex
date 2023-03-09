@@ -206,3 +206,56 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-03-06  7:17:15
+
+--
+-- Estructura de tabla para la tabla `cuentas`
+--
+
+CREATE TABLE `cuentas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nombre` varchar(100) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Estructura de tabla para la tabla `categorias-finanzas`
+--
+
+CREATE TABLE `categorias_finanzas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nombre` varchar(100) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nombre` varchar(100) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Estructura de tabla para la tabla `compras_y_gastos`
+-- 
+-- id, nombre, descripcion, tipo (efectivo, transferencia, pago con tarjeta), monto, fecha, id_cuenta (fk cuentas), id_categoria (fk categorias_finanzas), id_proveedor (fk proveedores), fecha
+--
+
+CREATE TABLE `compras_y_gastos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  `tipo` varchar(100) NOT NULL,
+  `monto` decimal(10,2) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id_cuenta` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `id_proveedor` int(11) NOT NULL,
+  FOREIGN KEY (`id_cuenta`) REFERENCES `cuentas`(`id`),
+  FOREIGN KEY (`id_categoria`) REFERENCES `categorias_finanzas`(`id`),
+  FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores`(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+

@@ -4,11 +4,11 @@
 
 		<ul class="sidebar-menu">
 
-		<?php
+			<?php
 
-		if($_SESSION["perfil"] == "Administrador"){
+			if ($_SESSION["perfil"] == "Administrador") {
 
-			echo '<li class="active">
+				echo '<li class="active">
 
 				<a href="inicio">
 
@@ -29,12 +29,11 @@
 				</a>
 
 			</li>';
+			}
 
-		}
+			if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial") {
 
-		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial"){
-
-			echo '<li>
+				echo '<li>
 
 					<a href="almacen">
 
@@ -55,12 +54,11 @@
 				</a>
 
 			</li>';
+			}
 
-		}
+			if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial") {
 
-		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Especial"){
-
-			echo '<li>
+				echo '<li>
 
 					<a href="productos">
 
@@ -75,13 +73,12 @@
 
 
 			</li>';
+			}
 
-		}
 
+			if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor") {
 
-		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
-
-			echo '<li>
+				echo '<li>
 
 				<a href="clientes">
 
@@ -91,12 +88,11 @@
 				</a>
 
 			</li>';
+			}
 
-		}
+			if ($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor") {
 
-		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
-
-			echo '<li class="treeview">
+				echo '<li class="treeview">
 
 				<a href="#">
 
@@ -136,7 +132,7 @@
 
 					</li>';
 
-					if($_SESSION["perfil"] == "Administrador"){
+				if ($_SESSION["perfil"] == "Administrador") {
 
 					echo '<li>
 
@@ -148,20 +144,18 @@
 						</a>
 
 					</li>';
+				}
 
-					}
 
-				
 
 				echo '</ul>
 
 			</li>';
+			}
 
-		}
+			if ($_SESSION["perfil"] == "Invitado" || $_SESSION["perfil"] == "Administrador") {
 
-		if($_SESSION["perfil"] == "Invitado" || $_SESSION["perfil"] == "Administrador"){
-
-			echo '<li>
+				echo '<li>
 
 					<a href="iproductos">
 
@@ -176,10 +170,77 @@
 
 
 			</li>';
+			}
 
-		}
+			if ($_SESSION["perfil"] == "Administrador") {
 
-		?>
+				echo '
+			<li class="treeview">
+
+				<a href="#">
+
+					<i class="fa fa-usd"></i>
+					
+					<span>Finanzas</span>
+					
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+
+					</span>
+
+				</a>
+
+				<ul class="treeview-menu">
+					
+					<li>
+
+						<a href="cuentas">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Cuentas</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="compras-y-gastos">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Compras Y Gastos</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="categorias-finanzas">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Categorias</span>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="proveedores">
+							
+							<i class="fa fa-circle-o"></i>
+							<span>Proveedores</span>
+
+						</a>
+
+					</li>
+
+			';
+			}
+
+			?>
 
 		</ul>
 

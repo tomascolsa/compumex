@@ -46,6 +46,12 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
         </button>
 
+        <a class="btn btn-success" href="vistas/modulos/descargar-excel.php?excel-productos=excel-productos">
+
+          Exportar a Excel
+
+        </a>
+
       </div>
 
       <div class="box-body">
@@ -284,19 +290,19 @@ MODAL AGREGAR PRODUCTO
                 <br>
 
 
-              <!-- ENTRADA PARA PRECIO VENTA -->
+                <!-- ENTRADA PARA PRECIO VENTA -->
 
-              <div class="form-group">
+                <div class="form-group">
 
-                <div class="input-group">
+                  <div class="input-group">
 
-                  <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-dollar"></i></span>
 
-                  <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" required placeholder="Precio Venta">
+                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" required placeholder="Precio Venta">
 
-                </div>
+                  </div>
 
-                <br>
+                  <br>
 
                   <!-- ENTRADA PARA SUBIR FOTO -->
 
@@ -387,7 +393,7 @@ MODAL EDITAR PRODUCTO
                 <p>Categoria</p>
 
                 <select class="form-control input-lg" name="editarCategoria">
-                  
+
 
                   <option id="editarCategoria"></option>
 
