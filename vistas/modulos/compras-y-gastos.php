@@ -105,9 +105,14 @@ if (!$_SESSION["perfil"] == "Administrador") {
               $itemCategoria = "id";
               $valorCategoria = $value["id_categoria"];
 
-              $respuestaCategoria = ControladorCategoriaFinanzas::ctrMostrarCategoriaFinanzas($itemCategoria, $valorCategoria);
+              if (!$value["id_categoria"]) {
 
-              echo '<td class="text-uppercase">' . $respuestaCategoria["nombre"] . '</td>';
+                echo '<td class="text-uppercase">Sin Categoria</td>';
+              } else {
+
+                $respuestaCategoria = ControladorCategoriaFinanzas::ctrMostrarCategoriaFinanzas($itemCategoria, $valorCategoria);
+                echo '<td class="text-uppercase">' . $respuestaCategoria["nombre"] . '</td>';
+              }
 
 
               $itemProveedor = "id";
@@ -115,7 +120,13 @@ if (!$_SESSION["perfil"] == "Administrador") {
 
               $respuestaProveedor = ControladorProveedores::ctrMostrarProveedores($itemProveedor, $valorProveedor);
 
-              echo '<td class="text-uppercase">' . $respuestaProveedor["nombre"] . '</td>';
+              if (!$valorProveedor) {
+
+                echo '<td class="text-uppercase">Sin Proveedor</td>';
+              } else {
+
+                echo '<td class="text-uppercase">' . $respuestaProveedor["nombre"] . '</td>';
+              }
 
               echo '<td>
 
@@ -379,7 +390,7 @@ MODAL EDITAR COMPRA GASTO
 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                  <select class="form-control input-lg" name="editarTipo" id="editarTipo">
+                  <select class="form-control input-lg" name="editarTipo" id="editarTipo" required>
 
                     <option value="" disabled selected>Selecionar Tipo</option>
 

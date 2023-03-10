@@ -259,3 +259,6 @@ CREATE TABLE `compras_y_gastos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
+ALTER TABLE `compras_y_gastos`
+MODIFY COLUMN `id_categoria` int(11) DEFAULT NULL,
+MODIFY COLUMN `id_proveedor` int(11) DEFAULT NULL;

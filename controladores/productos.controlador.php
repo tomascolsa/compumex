@@ -369,11 +369,6 @@ class ControladorProductos
 		$productos = ModeloProductos::mdlMostrarProductos($tabla, null, null, 'id');
 
 
-		foreach ($productos as $key => $value) {
-			$almacen = ModeloProductos::mdlMostrarProductos('almacen', 'id', $value["id_almacen"], 'id');
-			$categoria = ModeloProductos::mdlMostrarProductos('categorias', 'id', $value["id_categoria"], 'id');
-		}
-
 		/*=============================================
 			CREAMOS EL ARCHIVO DE EXCEL
 			=============================================*/
@@ -406,6 +401,9 @@ class ControladorProductos
 				</tr>");
 
 		foreach ($productos as $row => $item) {
+
+			$almacen = ModeloProductos::mdlMostrarProductos('almacen', 'id', $item["id_almacen"], 'id');
+			$categoria = ModeloProductos::mdlMostrarProductos('categorias', 'id', $item["id_categoria"], 'id');
 
 			$fecha = substr($item["fecha"], 0, -8);
 

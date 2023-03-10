@@ -16,6 +16,28 @@ class ControladorComprasGastos
 
         $tabla = "compras_y_gastos";
 
+        if (!$_POST["nuevoTipo"] || !$_POST["nuevaCuenta"]) {
+          echo '<script>
+            swal({
+              type: "error",
+              ' . (!$_POST["nuevoTipo"] ? 'title: "El tipo no puede ir vacío!",' : 'title: "La cuenta no puede ir vacía!",') . '
+              showConfirmButton: true,
+              confirmButtonText: "Cerrar"
+              }).then(function(result){
+                if (result.value) {
+                  window.location = "compras-y-gastos";
+                }
+              })
+          </script>';
+        }
+
+        echo '<script>
+          console.log("nuevaCategoria: ' . $_POST["nuevaCategoria"] . '");
+          console.log("nuevoProveedor: ' . $_POST["nuevoProveedor"] . '");
+          console.log("nuevoTipo: ' . $_POST["nuevoTipo"] . '");
+          console.log("nuevaCuenta: ' . $_POST["nuevaCuenta"] . '");
+        </script>';
+
         $datos = array(
           "nombre" => $_POST["nuevoNombre"],
           "descripcion" => $_POST["nuevaDescripcion"],
@@ -23,7 +45,7 @@ class ControladorComprasGastos
           "monto" => $_POST["nuevoMonto"],
           "id_cuenta" => $_POST["nuevaCuenta"],
           "id_categoria" => $_POST["nuevaCategoria"],
-          "id_proveedor" => $_POST["nuevoProveedor"]
+          "id_proveedor" => $_POST["nuevoProveedor"],
         );
 
         $respuesta = ModeloComprasGastos::mdlIngresarCompraGasto($tabla, $datos);
@@ -196,12 +218,6 @@ class ControladorComprasGastos
 
     $comprasGastos = ModeloComprasGastos::mdlMostrarComprasGastos($tabla, $item, $valor);
 
-    foreach ($comprasGastos as $key => $value) {
-      $cuenta = ModeloComprasGastos::mdlMostrarComprasGastos('cuentas', 'id', $value["id_cuenta"]);
-      $categoria = ModeloComprasGastos::mdlMostrarComprasGastos('categorias_finanzas', 'id', $value["id_categoria"]);
-      $proveedor = ModeloComprasGastos::mdlMostrarComprasGastos('proveedores', 'id', $value["id_proveedor"]);
-    }
-
     /*=============================================
         Creamos el archivo de Excel
         =============================================*/
@@ -233,6 +249,10 @@ class ControladorComprasGastos
 
     foreach ($comprasGastos as $row => $item) {
 
+      $cuenta = ModeloComprasGastos::mdlMostrarComprasGastos('cuentas', 'id', $item["id_cuenta"]);
+      $categoria = ModeloComprasGastos::mdlMostrarComprasGastos('categorias_finanzas', 'id', $item["id_categoria"]);
+      $proveedor = ModeloComprasGastos::mdlMostrarComprasGastos('proveedores', 'id', $item["id_proveedor"]);
+
       echo utf8_decode("<tr>
               <td style='border:1px solid #eee;'>" . $item["id"] . "</td>
               <td style='border:1px solid #eee;'>" . $item["nombre"] . "</td>
@@ -240,8 +260,8 @@ class ControladorComprasGastos
               <td style='border:1px solid #eee;'>" . $item["tipo"]  . "</td>
               <td style='border:1px solid #eee;'>" . $item["monto"] . "</td>
               <td style='border:1px solid #eee;'>" . $cuenta["nombre"] . "</td>
-              <td style='border:1px solid #eee;'>" . $categoria["nombre"] . "</td>
-              <td style='border:1px solid #eee;'>" . $proveedor["nombre"] . "</td>
+              <td style='border:1px solid #eee;'>" . (!$categoria ? "Sin categoria" : $categoria["nombre"]) . "</td>
+              <td style='border:1px solid #eee;'>" . (!$proveedor ? "Sin proveedor" : $proveedor["nombre"]) . "</td>
               <td style='border:1px solid #eee;'>" . $item["fecha"] . "</td>
             </tr>");
     }
