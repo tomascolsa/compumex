@@ -56,7 +56,7 @@ if ($_SESSION["perfil"] == "Vendedor") {
 
       <div class="box-body">
 
-        <table class="table table-bordered table-striped dt-responsive tablaProductos" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablaProductos " width="100%">
 
           <thead>
 
@@ -392,11 +392,21 @@ MODAL EDITAR PRODUCTO
 
                 <p>Categoria</p>
 
-                <select class="form-control input-lg" name="editarCategoria">
+                <select class="form-control input-lg" name="editarCategoria" id="editarCategoria">
+                  <option value="" disabled selected>Selecionar Categoria</option>
 
+                  <?php
 
-                  <option id="editarCategoria"></option>
+                  $item = null;
+                  $valor = null;
 
+                  $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                  foreach ($categorias as $key => $value) {
+                    echo '<option value="' . $value["id"] . '">' . $value["categoria"] . '</option>';
+                  }
+
+                  ?>
                 </select>
 
               </div>
@@ -413,10 +423,21 @@ MODAL EDITAR PRODUCTO
 
                 <p>Almacen</p>
 
-                <select class="form-control input-lg" name="editarAlmacen">
+                <select class="form-control input-lg" name="editarAlmacen" id="editarAlmacen">
+                  <option value="" disabled selected>Selecionar Almacen</option>
 
-                  <option id="editarAlmacen"></option>
+                  <?php
 
+                  $item = null;
+                  $valor = null;
+
+                  $almacenes = ControladorAlmacen::ctrMostrarAlmacen($item, $valor);
+
+                  foreach ($almacenes as $key => $value) {
+                    echo '<option value="' . $value["id"] . '">' . $value["almacen"] . '</option>';
+                  }
+
+                  ?>
                 </select>
 
               </div>
